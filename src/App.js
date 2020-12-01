@@ -13,8 +13,8 @@ function App(props) {
   return (
     <div className="ad-main">
       <Map />
-      <Menu />
-      {props.state.app.activeStoryId > 0 ? <StoryWrapper /> : ""}
+      {/* <Menu />
+      {props.state.app.activeStoryId > 0 ? <StoryWrapper /> : ""} */}
     </div>
   );
 }

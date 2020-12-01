@@ -4,12 +4,11 @@ import "./styles/style.scss";
 import App from "./App";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
-import { globalState } from "./redux/globalstate";
-import allReducer from "./redux/reducers";
+import mainReducer from "./redux/reducers";
 
 // Creating store
 const store = createStore(
-  allReducer,
+  mainReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 

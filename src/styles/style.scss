@@ -5,6 +5,7 @@ $theme-colors: (
   font-dark: #0e0d0d,
   white: #ffffff,
   greeen: #71ac1a,
+  reed: #ff414d,
 );
 
 $fonts: (
@@ -50,98 +51,114 @@ $fonts: (
 .ad-map-wrapper {
   width: 100%;
   height: 100%;
+}
 
-  .ad-map-img-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
+.ad-map-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
 
-    .map-scroll-container {
-      height: 100%;
+.map-scroll-container {
+  height: 100%;
 
-      &.indiana-scroll-container--dragging {
-        cursor: grabbing;
-      }
+  &.indiana-scroll-container--dragging {
+    cursor: grabbing;
+  }
+}
+
+.ad-map-img {
+  position: relative;
+  transition: all 0.2s ease;
+  &:hover {
+    cursor: grab;
+  }
+}
+
+.ad-map-surface {
+  z-index: 99;
+  position: absolute;
+  top: 0;
+}
+.map-location {
+  position: absolute;
+  width: fit-content;
+  height: fit-content;
+  z-index: 9999;
+  opacity: 0;
+
+  img {
+    transition: all 0.7s ease;
+    &:hover {
+      filter: drop-shadow(5px 5px 5px #222);
+      transform: translate(3px, 3px);
+      cursor: pointer;
+    }
+  }
+
+  &.active {
+    opacity: 1;
+  }
+}
+
+.map-popup {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  z-index: 999;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+
+  @keyframes popup_ripple_animation {
+    0% {
+      opacity: 1;
+      transform: scale(1);
     }
 
-    .ad-map-img {
-      position: relative;
-      transition: all 0.2s ease;
-      &:hover {
-        cursor: grab;
-      }
+    100% {
+      opacity: 0;
+      transform: scale(5);
     }
+  }
 
-    .ad-map-pin-wrapper {
-      z-index: 99;
-      position: absolute;
-      top: 0;
+  .popup-ripple {
+    width: 10px;
+    height: 10px;
+    background-color: getColor("reed");
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    animation-name: popup_ripple_animation;
+    animation-duration: 0.9s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+
+    &:hover {
+      background-color: blue;
     }
-    .map-pin {
-      width: 10px;
-      height: 10px;
-      background-color: rgba(0, 0, 00, 0);
-      border-radius: 50%;
-      position: absolute;
+  }
 
-      @keyframes location_glow {
-        0% {
-          opacity: 0.7;
-        }
-        100% {
-          opacity: 1;
-        }
-      }
+  .popup-pointer {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #810000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
 
-      .tour-begin-btn {
-        background-color: getColor("primary");
-        position: absolute;
-        white-space: nowrap;
-        font-family: map-get($fonts, "primary");
-        font-size: 18px;
-        font-weight: 700;
-        border: none;
-        padding: 15px 30px;
-        border-radius: 30px;
-        transform: translate(-140%, 160%);
-        cursor: pointer;
-        animation-name: location_glow;
-        animation-duration: 1s;
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
-        animation-timing-function: ease-in;
-        transition: all 0.3s ease;
-        z-index: 999;
-        &:hover {
-          background-color: darken(getColor("primary"), 15%);
-        }
-      }
-      img {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        opacity: 0;
-        transition: all 0.3s ease;
+.map-funfact {
+  position: absolute;
+  z-index: 9999;
 
-        &.active {
-          opacity: 1;
-          cursor: pointer;
-          animation-name: location_glow;
-          animation-duration: 1s;
-          animation-iteration-count: infinite;
-          animation-direction: alternate;
-          animation-timing-function: ease-in;
-
-          &:hover {
-            margin-top: 5px;
-            margin-left: 5px;
-            opacity: 1;
-            animation: none;
-          }
-        }
-      }
-    }
+  img {
+    width: 32px;
   }
 }
 
