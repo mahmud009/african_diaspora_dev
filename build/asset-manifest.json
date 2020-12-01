@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "./static/css/main.0e867e42.chunk.css",
+    "main.js": "./static/js/main.f421329d.chunk.js",
+    "main.js.map": "./static/js/main.f421329d.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.699ea300.js",
+    "runtime-main.js.map": "./static/js/runtime-main.699ea300.js.map",
+    "static/js/2.879d07f2.chunk.js": "./static/js/2.879d07f2.chunk.js",
+    "static/js/2.879d07f2.chunk.js.map": "./static/js/2.879d07f2.chunk.js.map",
+    "index.html": "./index.html",
+    "static/css/main.0e867e42.chunk.css.map": "./static/css/main.0e867e42.chunk.css.map",
+    "static/js/2.879d07f2.chunk.js.LICENSE.txt": "./static/js/2.879d07f2.chunk.js.LICENSE.txt",
+    "static/media/europe.532ef5a4.png": "./static/media/europe.532ef5a4.png",
+    "static/media/nigeria.4b40db3f.png": "./static/media/nigeria.4b40db3f.png",
+    "static/media/slide-guinea-1.a6fca544.png": "./static/media/slide-guinea-1.a6fca544.png",
+    "static/media/slide-guinea-2.69a39cc7.png": "./static/media/slide-guinea-2.69a39cc7.png",
+    "static/media/slide-nigeria-1.d70d959b.png": "./static/media/slide-nigeria-1.d70d959b.png",
+    "static/media/slide-nigeria-2.b5923942.png": "./static/media/slide-nigeria-2.b5923942.png",
+    "static/media/slide-nigeria-3.323f2069.png": "./static/media/slide-nigeria-3.323f2069.png",
+    "static/media/slide-nigeria-4.dbf268d7.png": "./static/media/slide-nigeria-4.dbf268d7.png",
+    "static/media/slide-nigeria-5.9af69c4a.png": "./static/media/slide-nigeria-5.9af69c4a.png",
+    "static/media/slide-nigeria-6.9094d13d.png": "./static/media/slide-nigeria-6.9094d13d.png",
+    "static/media/tour-start.cb8d5454.png": "./static/media/tour-start.cb8d5454.png",
+    "static/media/usa.ef604dda.png": "./static/media/usa.ef604dda.png",
+    "static/media/westafrica.ffa08234.png": "./static/media/westafrica.ffa08234.png",
+    "static/media/world-map.1b1ec70e.png": "./static/media/world-map.1b1ec70e.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.699ea300.js",
+    "static/js/2.879d07f2.chunk.js",
+    "static/css/main.0e867e42.chunk.css",
+    "static/js/main.f421329d.chunk.js"
+  ]
+}
