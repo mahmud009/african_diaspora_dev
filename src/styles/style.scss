@@ -88,10 +88,9 @@ $fonts: (
   opacity: 0;
 
   img {
-    transition: all 0.7s ease;
+    transition: all 0.3s ease;
     &:hover {
-      filter: drop-shadow(5px 5px 5px #222);
-      transform: translate(3px, 3px);
+      filter: drop-shadow(0px 15px 15px #222);
       cursor: pointer;
     }
   }
@@ -135,10 +134,7 @@ $fonts: (
     animation-duration: 0.9s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-out;
-
-    &:hover {
-      background-color: blue;
-    }
+    transition: all 0.3s ease;
   }
 
   .popup-pointer {
@@ -150,15 +146,31 @@ $fonts: (
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+  }
+
+  &:hover {
+    .popup-ripple {
+      background-color: green;
+      animation: none;
+      transform: scale(5);
+      opacity: 0.3;
+    }
+
+    .popup-pointer {
+      background-color: green;
+    }
   }
 }
 
 .map-funfact {
   position: absolute;
   z-index: 9999;
+  cursor: pointer;
 
   img {
     width: 32px;
+    filter: drop-shadow(0px 0px 15px #222);
   }
 }
 

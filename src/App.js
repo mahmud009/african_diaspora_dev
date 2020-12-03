@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Map from "./components/Map";
 import Menu from "./components/Menu";
 import { connect } from "react-redux";
@@ -8,15 +9,25 @@ function mapStateToProps(state) {
     state,
   };
 }
+function mapDispatchToProps(dispatch) {
+  return {
+    activateSlides: () => dispatch({ type: "ACTIVATE_SLIDES" }),
+  };
+}
 
 function App(props) {
+  const handleStart = () => {
+    props.activateSlides();
+  };
+
   return (
     <div className="ad-main">
+      <button onClick={handleStart}>Click to start</button>
       <Map />
-      {/* <Menu />
-      {props.state.app.activeStoryId > 0 ? <StoryWrapper /> : ""} */}
+      <Menu />
+      {/* {props.state.app.activeStoryId > 0 ? <StoryWrapper /> : ""} */}
     </div>
   );
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

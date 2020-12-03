@@ -26,15 +26,30 @@ const MapSurface = (props) => {
         top: location.coords.y,
       };
 
-      return (
-        <div
-          key={index + 1}
-          className={`map-location ${location.isVisible ? "active" : ""}`}
-          style={position}
-        >
-          <img src={location.image} alt={location.name} />
-        </div>
-      );
+      let audio = new Audio(location.sound);
+      function playSound() {
+        audio.play();
+      }
+      function stopSound() {
+        audio.pause();
+        audio.currentTime = 0;
+      }
+
+      if (location.active) {
+        return (
+          <div
+            key={index + 1}
+            className={`map-location ${location.active ? "active" : ""}`}
+            style={position}
+            onMouseOver={() => playSound()}
+            onMouseLeave={() => stopSound()}
+          >
+            <img src={location.image} alt={location.name} />
+          </div>
+        );
+      } else {
+        return;
+      }
     });
   };
 
@@ -45,16 +60,21 @@ const MapSurface = (props) => {
         left: popup.coords.x,
         top: popup.coords.y,
       };
-      return (
-        <div
-          className={`map-popup ${popup.isVisible ? "active" : ""}`}
-          style={position}
-          key={index + 1}
-        >
-          <div className="popup-ripple"></div>
-          <div className="popup-pointer"></div>
-        </div>
-      );
+
+      if (popup.active) {
+        return (
+          <div
+            className={`map-popup ${popup.isVisible ? "active" : ""}`}
+            style={position}
+            key={index + 1}
+          >
+            <div className="popup-ripple"></div>
+            <div className="popup-pointer"></div>
+          </div>
+        );
+      } else {
+        return;
+      }
     });
   };
 
@@ -65,11 +85,15 @@ const MapSurface = (props) => {
         left: fact.coords.x,
         top: fact.coords.y,
       };
-      return (
-        <div className="map-funfact" style={position} key={index + 1}>
-          <img src={FunfactIcon} alt="funfact" />
-        </div>
-      );
+      if (fact.active) {
+        return (
+          <div className="map-funfact" style={position} key={index + 1}>
+            <img src={FunfactIcon} alt="funfact" />
+          </div>
+        );
+      } else {
+        return;
+      }
     });
   };
 

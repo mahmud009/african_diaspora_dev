@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import ScrollContainer from "react-indiana-drag-scroll";
 import WorldMap from "../img/world-map.png";
 import MapSurface from "./MapSurface";
+
 // import StartBtnMap from "./StartBtnMap";
 
 function mapStateToProps(state) {
