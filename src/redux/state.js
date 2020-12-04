@@ -1,3 +1,5 @@
+import { tourDescription, nigeriaSlides, southamericaSlides } from "./data";
+
 // Importing location's indivudual images
 import Europe from "../img/europe.png";
 import Guinea from "../img/guinea.png";
@@ -16,25 +18,39 @@ import CarribeanSound from "../sounds/carribean.mp3";
 import SouthamericaSound from "../sounds/southamerica.mp3";
 import UsaSound from "../sounds/usa.mp3";
 
-// Importing slide story images
-import SlideGuinea1 from "../img/slide-guinea-1.png";
+const menu = {
+  active: true,
+  items: [
+    {
+      name: "North African Tour",
+      target: "northafrica",
+      available: false,
+    },
+    {
+      name: "West African Tour",
+      target: "westafrica",
+      available: true,
+    },
+    {
+      name: "East African Tour",
+      target: "eastafrica",
+      available: false,
+    },
+    {
+      name: "South African Tour",
+      target: "southafrica",
+      available: false,
+    },
+  ],
+};
 
-const menu = [
+const tourstart = [
   {
-    name: "North African Tour",
-    available: false,
-  },
-  {
-    name: "West African Tour",
-    available: true,
-  },
-  {
-    name: "East African Tour",
-    available: false,
-  },
-  {
-    name: "South African Tour",
-    available: false,
+    name: "westafrica",
+    title: tourDescription.find((tour) => tour.name === "westafrica").title,
+    description: tourDescription.find((tour) => tour.name === "westafrica")
+      .description,
+    active: false,
   },
 ];
 
@@ -43,10 +59,11 @@ const map = {
   dimension: { x: 2500, y: 1355 },
   darkness: 0.8,
   zoomLevel: 1,
-  blurLevel: 0,
-  position: { x: 0, y: 0 },
-  freezed: false,
+  blurLevel: 4,
+  position: { x: -420, y: -150 },
+  freezed: true,
   isScrolling: true,
+  blinking: false,
 };
 
 // location structure to create map
@@ -57,6 +74,7 @@ const locations = [
     image: Europe,
     sound: EuropeSound,
     active: false,
+    clickable: false,
   },
   {
     name: "usa",
@@ -64,6 +82,7 @@ const locations = [
     image: Usa,
     sound: UsaSound,
     active: false,
+    clickable: false,
   },
 
   {
@@ -71,12 +90,14 @@ const locations = [
     coords: { x: 1031, y: 542 },
     image: Guinea,
     active: false,
+    clickable: false,
   },
   {
     name: "nigeria",
     coords: { x: 1190, y: 530 },
     image: Nigeria,
     active: false,
+    clickable: false,
   },
   {
     name: "westafrica",
@@ -84,6 +105,7 @@ const locations = [
     image: Westafrica,
     active: false,
     sound: WestafricaSound,
+    clickable: false,
   },
   {
     name: "carribean",
@@ -91,14 +113,16 @@ const locations = [
     image: Carribean,
     sound: CarribeanSound,
     active: false,
+    clickable: false,
   },
 
   {
     name: "canada",
-    coords: { x: 149, y: -2 },
+    coords: { x: 149, y: -1 },
     image: Canada,
     sound: CanadaSound,
     active: false,
+    clickable: false,
   },
   {
     name: "southamerica",
@@ -106,6 +130,7 @@ const locations = [
     image: Southamerica,
     sound: SouthamericaSound,
     active: false,
+    clickable: false,
   },
 ];
 
@@ -197,27 +222,32 @@ const funfacts = [
   },
 ];
 
+const mapbutton = {
+  type: "",
+  coords: { x: 0, y: 0 },
+  dimension: { x: 0, y: 0 },
+  active: false,
+  text: "",
+};
+
 const slides = [
   {
-    type: "introduction",
-    description: "This is a introduction",
-    map: { darkness: 0.6, zoomLevel: 1.6 },
-    locations: ["nigeria"],
-  },
-  {
-    type: "story",
-    image: SlideGuinea1,
-    description: "This is a introduction",
-    map: {
-      darkness: 0.6,
-      zoomLevel: 1.3,
-      isScrolling: false,
-      position: { x: -350, y: 350 },
+    type: "init",
+    active: false,
+    map: { darkness: 0.5, freezed: false, position: { x: 0, y: 0 } },
+    locations: "all",
+    ignoreLocation: ["nigeria", "guinea"],
+    popups: "all",
+    funfacts: "all",
+    mapbutton: {
+      active: true,
+      type: "visible",
+      coords: { x: 1200, y: 540 },
+      text: "Tour West Africa",
     },
-    locations: ["europe", "usa"],
-    popups: ["spain", "portugal", "france"],
-    funfacts: ["westafrica", "europe"],
   },
+  ...nigeriaSlides,
+  ...southamericaSlides,
 ];
 
 const state = {
@@ -227,6 +257,8 @@ const state = {
   funfacts,
   slides,
   menu,
+  tourstart,
+  mapbutton,
 };
 
 export default state;

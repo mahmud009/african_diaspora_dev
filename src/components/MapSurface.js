@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import FunfactIcon from "../img/funfact-icon.png";
+import MapButton from "./MapButton";
 
 function mapStateToProps(state) {
   return {
@@ -9,7 +10,9 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return {};
+  return {
+    triggerSlide: (mode) => dispatch({ type: "CHANGE_SLIDE", payload: mode }),
+  };
 }
 
 const MapSurface = (props) => {
@@ -35,14 +38,23 @@ const MapSurface = (props) => {
         audio.currentTime = 0;
       }
 
+      function triggerSlide(mode) {
+        if (location.clickable) {
+          props.triggerSlide(mode);
+        }
+      }
+
       if (location.active) {
         return (
           <div
             key={index + 1}
-            className={`map-location ${location.active ? "active" : ""}`}
+            className={`map-location ${location.active ? "active" : ""}  ${
+              location.blinking ? "blinking" : ""
+            }`}
             style={position}
             onMouseOver={() => playSound()}
             onMouseLeave={() => stopSound()}
+            onClick={() => triggerSlide("next")}
           >
             <img src={location.image} alt={location.name} />
           </div>
@@ -109,6 +121,7 @@ const MapSurface = (props) => {
       {renderLocations()}
       {renderPopups()}
       {renderFunfacts()}
+      <MapButton />
     </div>
   );
 };

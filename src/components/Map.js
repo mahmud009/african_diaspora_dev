@@ -34,9 +34,10 @@ const Map = (props) => {
           ignoreElements={map.freezed ? ".ad-map-img" : ""}
         >
           <div
-            className={
-              map.isScrolling ? `ad-map-img` : `ad-map-img scroll-active`
-            }
+            className={`
+              ${map.isScrolling ? `ad-map-img` : `ad-map-img scroll-active`}
+              ${map.blinking ? "blinking" : ""}
+            `}
             style={zoomState}
           >
             <img

@@ -1,26 +1,108 @@
+import MapButton from "../components/MapButton";
 import global from "./state";
 
-function transformSurface({ fields, names }) {
-  fields.map((field) => {
-    for (let name of names) {
-      if (field.name === name) field.active = true;
-    }
-  });
+function transformSurface({ fields, names, ignore }) {
+  if (names === "all") {
+    fields.map((field) => {
+      field.active = true;
+      if (ignore) {
+        for (let area of ignore) {
+          if (area === field.name) {
+            field.active = false;
+          }
+        }
+      }
+    });
+  } else {
+    fields.map((field) => {
+      for (let name of names) {
+        if (field.name === name) field.active = true;
+      }
+    });
+  }
 }
 global.transformMap = function (properties) {
   let { map } = this;
   Object.assign(map, properties);
 };
 
+function activateAllSurface({ locations, popups, funfacts }) {
+  locations.map((location) => (location.active = true));
+  popups.map((popup) => (popup.active = true));
+  funfacts.map((fact) => (fact.active = true));
+}
+
+function deactivateAllSurface({ locations, popups, funfacts }) {
+  locations.map((location) => (location.active = false));
+  locations.map((location) => (location.clickable = false));
+  popups.map((popup) => (popup.active = false));
+  funfacts.map((fact) => (fact.active = false));
+}
+
 const mainReducer = (state = global, action) => {
-  let { locations, popups, funfacts } = state;
+  let {
+    locations,
+    popups,
+    funfacts,
+    tourstart,
+    menu,
+    map,
+    slides,
+    mapbutton,
+  } = state;
 
   switch (action.type) {
+    case "ACTIVATE_TOUR_START":
+      menu.active = false;
+      tourstart.map((tour) => {
+        if (tour.name === action.payload) {
+          tour.active = true;
+        }
+      });
+      return { ...state };
     case "ACTIVATE_SLIDES":
-      state.transformMap(state.slides[1].map);
-      transformSurface({ fields: locations, names: state.slides[1].locations });
-      transformSurface({ fields: popups, names: state.slides[1].popups });
-      transformSurface({ fields: funfacts, names: state.slides[1].funfacts });
+      tourstart.map((item) => (item.active = false));
+      slides[0].active = true;
+      return { ...state };
+    case "CHANGE_SLIDE":
+      let currentIndex = slides.indexOf(slides.find((slide) => slide.active));
+      slides.map((slide, index) => {
+        slide.active = false;
+        let nextIndex = currentIndex + 1;
+        let prevIndex = currentIndex - 1;
+        if (action.payload === "next" && nextIndex === index) {
+          slide.active = true;
+        }
+        if (action.payload === "prev" && prevIndex === index) {
+          slide.active = true;
+        }
+      });
+
+    case "ENABLE_ACTIVE_SLIDE":
+      deactivateAllSurface({ locations, popups, funfacts });
+      let activeSlide = slides.find((slide) => slide.active);
+      if (activeSlide) {
+        state.transformMap(activeSlide.map);
+        transformSurface({
+          fields: locations,
+          names: activeSlide.locations,
+          ignore: activeSlide.ignoreLocation,
+        });
+        transformSurface({ fields: popups, names: activeSlide.popups });
+        transformSurface({ fields: funfacts, names: activeSlide.funfacts });
+        Object.assign(mapbutton, activeSlide.mapbutton);
+        if (activeSlide.type === "stop") {
+          let activeLocations = activeSlide.locations;
+          locations.map((location) => {
+            for (let area of activeLocations) {
+              if (location.name === area) {
+                location.clickable = true;
+              }
+            }
+          });
+        }
+      }
+
       return { ...state };
     default:
       return { ...state };

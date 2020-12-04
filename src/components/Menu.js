@@ -10,16 +10,28 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return {};
+  return {
+    activateTourStart: (name) =>
+      dispatch({ type: "ACTIVATE_TOUR_START", payload: name }),
+  };
 }
 
 const Menu = (props) => {
-  const items = props.state.menu;
+  const active = props.state.menu.active;
+  const items = props.state.menu.items;
+
+  const activateTourStart = (name) => {
+    props.activateTourStart(name);
+  };
+
   const renderItems = () => {
     return items.map((item, index) => {
       return (
         <li key={index + 1}>
-          <button className={item.available ? "available" : ""}>
+          <button
+            className={item.available ? "available" : ""}
+            onClick={() => activateTourStart(item.target)}
+          >
             <span className="ad-tour-name">{item.name}</span>
             {item.available ? (
               ""
@@ -32,15 +44,19 @@ const Menu = (props) => {
     });
   };
 
-  return (
-    <div className="ad-menu">
-      <div className="ad-menu-wrapper">
-        <Scrollbars>
-          <ul>{renderItems()}</ul>
-        </Scrollbars>
+  if (active) {
+    return (
+      <div className="ad-menu">
+        <div className="ad-menu-wrapper">
+          <Scrollbars>
+            <ul>{renderItems()}</ul>
+          </Scrollbars>
+        </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return "";
+  }
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Menu);

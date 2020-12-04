@@ -2,7 +2,8 @@ import { useEffect } from "react";
 import Map from "./components/Map";
 import Menu from "./components/Menu";
 import { connect } from "react-redux";
-import StoryWrapper from "./components/StoryWrapper";
+import TourStart from "./components/TourStart";
+import Slides from "./components/Slides";
 
 function mapStateToProps(state) {
   return {
@@ -22,9 +23,11 @@ function App(props) {
 
   return (
     <div className="ad-main">
-      <button onClick={handleStart}>Click to start</button>
-      <Map />
       <Menu />
+      <TourStart />
+      <Map />
+      <Slides />
+
       {/* {props.state.app.activeStoryId > 0 ? <StoryWrapper /> : ""} */}
     </div>
   );
