@@ -91,6 +91,15 @@ $fonts: (
   position: absolute;
   top: 0;
 }
+
+.triangle-image,
+.flag-image {
+  position: absolute;
+  width: fit-content;
+  height: fit-content;
+  z-index: 9999;
+}
+
 .map-location {
   position: absolute;
   width: fit-content;
@@ -552,26 +561,98 @@ $fonts: (
   }
 }
 
-// Test css
+.back-button {
+  position: absolute;
+  bottom: 50px;
+  left: 100px;
+  width: 150px;
+  height: 100px;
+  //background-color: white;
+  z-index: 999;
+  cursor: pointer;
 
-.test-wrapper {
-  width: 1000px;
-  height: 600px;
-  background-color: coral;
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  overflow: scroll;
-
-  .test-image {
-    width: 1200px;
-    transform: scale(3);
+  &.deactive {
+    display: none;
   }
 
-  .react-transform-component {
-    width: 100%;
-    height: 100%;
-    background-color: cornsilk;
+  .back-button-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: fit-content;
+    height: fit-content;
+
+    img {
+      width: 64px;
+      opacity: 0.3;
+      transition: all 0.3s ease;
+      // animation-name: glow;
+      // animation-duration: 1s;
+      // animation-iteration-count: infinite;
+      // animation-direction: alternate;
+      // animation-timing-function: ease-in;
+      transition: all 0.3s ease;
+    }
   }
+
+  .button-wrapper {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+
+    .back-button-text {
+      width: 100%;
+      padding: 10px 30px;
+      margin-bottom: 10px;
+      white-space: nowrap;
+      border: none;
+      background-color: makeTrans(getColor("primary"), 0.4);
+      font-family: map-get($fonts, "primary");
+      font-weight: 600;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      &:hover {
+        background-color: getColor("primary");
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+      &:focus {
+        outline: none;
+      }
+
+      &.deactive {
+        display: none;
+      }
+    }
+  }
+
+  &:hover {
+    .back-button-icon {
+      img {
+        opacity: 1;
+        transform: scale(1.1);
+      }
+    }
+
+    .button-wrapper {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+}
+
+.circle {
+  border: 1px solid #f5531b;
+  background-color: rgba(245, 83, 27, 0.2);
+  width: 39px;
+  height: 39px;
+  border-radius: 50%;
 }

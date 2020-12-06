@@ -4,6 +4,8 @@ import FunfactIcon from "../img/funfact-icon.png";
 import MapButton from "./MapButton";
 import funfactSound from "../sounds/funfact.mp3";
 import blackPopupSound from "../sounds/black-popup.mp3";
+import StartFlag from "../img/start-flag.png";
+import FinishFlag from "../img/finish-flag.png";
 
 function mapStateToProps(state) {
   return {
@@ -148,6 +150,48 @@ const MapSurface = (props) => {
     });
   };
 
+  const renderFlag = () => {
+    const flagType = props.state.flag.type;
+    const flagActive = props.state.flag.active;
+    const position = {
+      top: props.state.flag.position.y,
+      left: props.state.flag.position.x,
+    };
+
+    if (flagActive) {
+      return (
+        <div className="flag-image" style={position}>
+          {flagType === "start" ? (
+            <img src={StartFlag} alt="start-flag" style={{ width: 40 }} />
+          ) : (
+            <img src={FinishFlag} alt="finisg flag" style={{ width: 40 }} />
+          )}
+        </div>
+      );
+    } else {
+      return "";
+    }
+  };
+
+  const renderTriangle = () => {
+    const triangleActive = props.state.triangle.active;
+    if (triangleActive) {
+      return (
+        <div
+          className="triangle-image"
+          style={{
+            top: props.state.triangle.position.y,
+            left: props.state.triangle.position.x,
+          }}
+        >
+          <img src={props.state.triangle.image} alt="Triangular trade" />
+        </div>
+      );
+    } else {
+      return "";
+    }
+  };
+
   // Creating some inline styles to change dynamically according to state
   const locationBg = {
     width: `${map.dimension.x}px`,
@@ -160,6 +204,8 @@ const MapSurface = (props) => {
       {renderLocations()}
       {renderPopups()}
       {renderFunfacts()}
+      {renderFlag()}
+      {renderTriangle()}
       <MapButton />
     </div>
   );

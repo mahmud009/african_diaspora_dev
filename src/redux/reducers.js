@@ -48,6 +48,71 @@ function resetMap(map) {
   map.freezed = true;
 }
 
+function backToMenu(state) {
+  function mapToDeactive(object) {
+    object.map((property) => {
+      if (property.active) {
+        property.active = false;
+      }
+    });
+  }
+
+  let mapProperty = {
+    dimension: { x: 2500, y: 1355 },
+    darkness: 0.8,
+    zoomLevel: 1,
+    blurLevel: 2,
+    position: { x: -360, y: -100 },
+    freezed: true,
+    isScrolling: true,
+    blinking: false,
+  };
+
+  mapToDeactive(state.locations);
+  mapToDeactive(state.popups);
+  mapToDeactive(state.funfacts);
+  mapToDeactive(state.slides);
+  mapToDeactive(state.tourstart);
+  state.popup.active = false;
+  state.mapbutton.active = false;
+  state.triangle.active = false;
+  Object.assign(state.map, mapProperty);
+  state.menu.active = true;
+}
+
+function backToTourStart(state) {
+  function mapToDeactive(object) {
+    object.map((property) => {
+      if (property.active) {
+        property.active = false;
+      }
+    });
+  }
+
+  let mapProperty = {
+    dimension: { x: 2500, y: 1355 },
+    darkness: 0.8,
+    zoomLevel: 1,
+    blurLevel: 2,
+    position: { x: -360, y: -100 },
+    freezed: true,
+    isScrolling: true,
+    blinking: false,
+  };
+
+  mapToDeactive(state.locations);
+  mapToDeactive(state.popups);
+  mapToDeactive(state.funfacts);
+  mapToDeactive(state.slides);
+  mapToDeactive(state.tourstart);
+  state.popup.active = false;
+  state.mapbutton.active = false;
+  Object.assign(state.map, mapProperty);
+  state.triangle.active = false;
+  state.menu.active = false;
+  state.slides[0].active = true;
+}
+
 const mainReducer = (state = global, action) => {
   let {
     locations,
@@ -58,6 +123,8 @@ const mainReducer = (state = global, action) => {
     map,
     slides,
     mapbutton,
+    triangle,
+    flag,
   } = state;
 
   switch (action.type) {
@@ -100,6 +167,8 @@ const mainReducer = (state = global, action) => {
         transformSurface({ fields: popups, names: activeSlide.popups });
         transformSurface({ fields: funfacts, names: activeSlide.funfacts });
         Object.assign(mapbutton, activeSlide.mapbutton);
+        Object.assign(triangle, activeSlide.triangle);
+        Object.assign(flag, activeSlide.flag);
         if (activeSlide.type === "stop") {
           let activeLocations = activeSlide.locations;
           locations.map((location) => {
@@ -128,6 +197,13 @@ const mainReducer = (state = global, action) => {
       blackpopup.type = "black";
       blackpopup.description = action.payload;
       blackpopup.active = true;
+      return { ...state };
+
+    case "BACK_TO_MENU":
+      backToMenu(state);
+      return { ...state };
+    case "BACK_TO_TOUR_START":
+      backToTourStart(state);
       return { ...state };
     default:
       return { ...state };

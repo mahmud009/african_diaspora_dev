@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import TourStart from "./components/TourStart";
 import Slides from "./components/Slides";
 import DialogBox from "./components/DialogBox";
+import BackButton from "./components/BackButton";
 import Test from "./Test";
 
 function mapStateToProps(state) {
@@ -31,6 +32,7 @@ function App(props) {
       <Map />
       <Slides />
       <DialogBox />
+      <BackButton />
     </div>
   );
 }

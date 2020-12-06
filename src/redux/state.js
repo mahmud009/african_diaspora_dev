@@ -9,6 +9,7 @@ import Westafrica from "../img/westafrica.png";
 import Carribean from "../img/carribean.png";
 import Canada from "../img/canada.png";
 import Southamerica from "../img/southamerica.png";
+import Triangle from "../img/triangular-trade.png";
 
 // Importing location's sound track
 import EuropeSound from "../sounds/europe.mp3";
@@ -336,26 +337,26 @@ const mapbutton = {
 };
 
 const slides = [
-  {
-    type: "init",
-    active: false,
-    map: {
-      darkness: 0.5,
-      blurLevel: 0,
-      freezed: false,
-      position: { x: 0, y: 0 },
-    },
-    locations: "all",
-    ignoreLocation: ["nigeria", "guinea"],
-    popups: "all",
-    funfacts: "all",
-    mapbutton: {
-      active: true,
-      type: "visible",
-      coords: { x: 1200, y: 540 },
-      text: "Tour West Africa",
-    },
-  },
+  // {
+  //   type: "init",
+  //   active: false,
+  //   map: {
+  //     darkness: 0.5,
+  //     blurLevel: 0,
+  //     freezed: false,
+  //     position: { x: 0, y: 0 },
+  //   },
+  //   locations: "all",
+  //   ignoreLocation: ["nigeria"],
+  //   popups: "all",
+  //   funfacts: "all",
+  //   mapbutton: {
+  //     active: true,
+  //     type: "visible",
+  //     coords: { x: 1200, y: 540 },
+  //     text: "Tour West Africa",
+  //   },
+  // },
   // ...nigeriaSlides,
   ...southamericaSlides,
 ];
@@ -364,6 +365,18 @@ const popup = {
   type: "",
   active: false,
   description: "",
+};
+
+const triangle = {
+  image: Triangle,
+  active: false,
+  position: { x: 650, y: 150 },
+};
+
+const flag = {
+  type: "start",
+  active: false,
+  position: { x: 650, y: 150 },
 };
 
 const state = {
@@ -376,6 +389,8 @@ const state = {
   tourstart,
   mapbutton,
   popup,
+  triangle,
+  flag,
 };
 
 export default state;
