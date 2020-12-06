@@ -4,6 +4,8 @@ import Menu from "./components/Menu";
 import { connect } from "react-redux";
 import TourStart from "./components/TourStart";
 import Slides from "./components/Slides";
+import DialogBox from "./components/DialogBox";
+import Test from "./Test";
 
 function mapStateToProps(state) {
   return {
@@ -23,12 +25,12 @@ function App(props) {
 
   return (
     <div className="ad-main">
+      {/* <Test /> */}
       <Menu />
       <TourStart />
       <Map />
       <Slides />
-
-      {/* {props.state.app.activeStoryId > 0 ? <StoryWrapper /> : ""} */}
+      <DialogBox />
     </div>
   );
 }

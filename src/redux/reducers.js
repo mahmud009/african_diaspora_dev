@@ -39,6 +39,15 @@ function deactivateAllSurface({ locations, popups, funfacts }) {
   funfacts.map((fact) => (fact.active = false));
 }
 
+function resetMap(map) {
+  map.darkness = 0.8;
+  map.zoomLevel = 1;
+  map.blurLevel = 4;
+  map.position.x = -420;
+  map.position.y = -150;
+  map.freezed = true;
+}
+
 const mainReducer = (state = global, action) => {
   let {
     locations,
@@ -103,6 +112,22 @@ const mainReducer = (state = global, action) => {
         }
       }
 
+      return { ...state };
+    case "CLOSE_POPUP":
+      const popup = state.popup;
+      popup.active = false;
+      return { ...state };
+    case "TRIGGER_FUN_POPUP":
+      const funpopup = state.popup;
+      funpopup.type = "fun";
+      funpopup.description = action.payload;
+      funpopup.active = true;
+      return { ...state };
+    case "TRIGGER_BLACK_POPUP":
+      const blackpopup = state.popup;
+      blackpopup.type = "black";
+      blackpopup.description = action.payload;
+      blackpopup.active = true;
       return { ...state };
     default:
       return { ...state };

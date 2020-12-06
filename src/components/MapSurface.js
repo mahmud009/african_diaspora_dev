@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useRef } from "react";
 import { connect } from "react-redux";
 import FunfactIcon from "../img/funfact-icon.png";
 import MapButton from "./MapButton";
+import funfactSound from "../sounds/funfact.mp3";
+import blackPopupSound from "../sounds/black-popup.mp3";
 
 function mapStateToProps(state) {
   return {
@@ -12,6 +14,10 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     triggerSlide: (mode) => dispatch({ type: "CHANGE_SLIDE", payload: mode }),
+    triggerFunPopup: (message) =>
+      dispatch({ type: "TRIGGER_FUN_POPUP", payload: message }),
+    blackPopupTrigger: (message) =>
+      dispatch({ type: "TRIGGER_BLACK_POPUP", payload: message }),
   };
 }
 
@@ -31,7 +37,9 @@ const MapSurface = (props) => {
 
       let audio = new Audio(location.sound);
       function playSound() {
-        audio.play();
+        if (!location.clickable) {
+          audio.play();
+        }
       }
       function stopSound() {
         audio.pause();
@@ -73,12 +81,25 @@ const MapSurface = (props) => {
         top: popup.coords.y,
       };
 
+      const blackPopupTrigger = (message) => {
+        props.blackPopupTrigger(message);
+      };
+
       if (popup.active) {
+        const playBlackPopupSound = () => {
+          let audio = new Audio(blackPopupSound);
+          audio.play();
+        };
+
         return (
           <div
             className={`map-popup ${popup.isVisible ? "active" : ""}`}
             style={position}
             key={index + 1}
+            onClick={() => {
+              blackPopupTrigger(popup.description);
+              playBlackPopupSound();
+            }}
           >
             <div className="popup-ripple"></div>
             <div className="popup-pointer"></div>
@@ -97,9 +118,27 @@ const MapSurface = (props) => {
         left: fact.coords.x,
         top: fact.coords.y,
       };
+
+      const triggerFunPopup = (message) => {
+        props.triggerFunPopup(message);
+      };
+
       if (fact.active) {
+        const playFunSound = () => {
+          let audio = new Audio(funfactSound);
+          audio.play();
+        };
+
         return (
-          <div className="map-funfact" style={position} key={index + 1}>
+          <div
+            className="map-funfact"
+            style={position}
+            key={index + 1}
+            onClick={() => {
+              playFunSound();
+              triggerFunPopup(fact.description);
+            }}
+          >
             <img src={FunfactIcon} alt="funfact" />
           </div>
         );
