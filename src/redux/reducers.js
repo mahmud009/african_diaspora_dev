@@ -76,6 +76,7 @@ function backToMenu(state) {
   state.popup.active = false;
   state.mapbutton.active = false;
   state.triangle.active = false;
+  state.flag.active = false;
   Object.assign(state.map, mapProperty);
   state.menu.active = true;
 }
@@ -109,6 +110,7 @@ function backToTourStart(state) {
   state.mapbutton.active = false;
   Object.assign(state.map, mapProperty);
   state.triangle.active = false;
+  state.flag.active = false;
   state.menu.active = false;
   state.slides[0].active = true;
 }

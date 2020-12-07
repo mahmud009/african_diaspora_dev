@@ -1,4 +1,12 @@
-import { tourDescription, nigeriaSlides, southamericaSlides } from "./data";
+import {
+  tourDescription,
+  nigeriaSlides,
+  southamericaSlides,
+  europeSlides,
+  carribeanSlides,
+  slideUsa,
+  canadaSlides,
+} from "./data";
 
 // Importing location's indivudual images
 import Europe from "../img/europe.png";
@@ -162,7 +170,7 @@ const popups = [
     active: false,
   },
   {
-    name: "uk",
+    name: "europe",
     coords: { x: 1150, y: 120 },
     active: false,
     description: (
@@ -337,28 +345,32 @@ const mapbutton = {
 };
 
 const slides = [
-  // {
-  //   type: "init",
-  //   active: false,
-  //   map: {
-  //     darkness: 0.5,
-  //     blurLevel: 0,
-  //     freezed: false,
-  //     position: { x: 0, y: 0 },
-  //   },
-  //   locations: "all",
-  //   ignoreLocation: ["nigeria"],
-  //   popups: "all",
-  //   funfacts: "all",
-  //   mapbutton: {
-  //     active: true,
-  //     type: "visible",
-  //     coords: { x: 1200, y: 540 },
-  //     text: "Tour West Africa",
-  //   },
-  // },
-  // ...nigeriaSlides,
+  {
+    type: "init",
+    active: false,
+    map: {
+      darkness: 0.5,
+      blurLevel: 0,
+      freezed: false,
+      position: { x: 0, y: 0 },
+    },
+    locations: "all",
+    ignoreLocation: ["nigeria"],
+    popups: "all",
+    funfacts: "all",
+    mapbutton: {
+      active: true,
+      type: "visible",
+      coords: { x: 1200, y: 540 },
+      text: "Tour West Africa",
+    },
+  },
+  ...nigeriaSlides,
   ...southamericaSlides,
+  ...europeSlides,
+  ...carribeanSlides,
+  ...slideUsa,
+  ...canadaSlides,
 ];
 
 const popup = {
