@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "./static/css/main.0198ef39.chunk.css",
-    "main.js": "./static/js/main.db887d78.chunk.js",
-    "main.js.map": "./static/js/main.db887d78.chunk.js.map",
+    "main.js": "./static/js/main.2dbdf249.chunk.js",
+    "main.js.map": "./static/js/main.2dbdf249.chunk.js.map",
     "runtime-main.js": "./static/js/runtime-main.699ea300.js",
     "runtime-main.js.map": "./static/js/runtime-main.699ea300.js.map",
     "static/js/2.7175e766.chunk.js": "./static/js/2.7175e766.chunk.js",
@@ -54,6 +54,7 @@
     "static/media/slide-usa-3.17b812a2.png": "./static/media/slide-usa-3.17b812a2.png",
     "static/media/slide-usa-4.98136d90.png": "./static/media/slide-usa-4.98136d90.png",
     "static/media/slide-usa-5.d0205182.png": "./static/media/slide-usa-5.d0205182.png",
+    "static/media/slide-usa-6.1736149c.png": "./static/media/slide-usa-6.1736149c.png",
     "static/media/southamerica.30bff61c.png": "./static/media/southamerica.30bff61c.png",
     "static/media/southamerica.4bd55b7f.mp3": "./static/media/southamerica.4bd55b7f.mp3",
     "static/media/tour-end-bg.afed7d00.png": "./static/media/tour-end-bg.afed7d00.png",
@@ -68,6 +69,6 @@
     "static/js/runtime-main.699ea300.js",
     "static/js/2.7175e766.chunk.js",
     "static/css/main.0198ef39.chunk.css",
-    "static/js/main.db887d78.chunk.js"
+    "static/js/main.2dbdf249.chunk.js"
   ]
 }
