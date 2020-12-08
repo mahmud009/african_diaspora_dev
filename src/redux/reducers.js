@@ -77,6 +77,7 @@ function backToMenu(state) {
   state.mapbutton.active = false;
   state.triangle.active = false;
   state.flag.active = false;
+  state.tourEnd.active = false;
   Object.assign(state.map, mapProperty);
   state.menu.active = true;
 }
@@ -112,6 +113,7 @@ function backToTourStart(state) {
   state.triangle.active = false;
   state.flag.active = false;
   state.menu.active = false;
+  state.tourEnd.active = false;
   state.slides[0].active = true;
 }
 
@@ -127,6 +129,7 @@ const mainReducer = (state = global, action) => {
     mapbutton,
     triangle,
     flag,
+    tourEnd,
   } = state;
 
   switch (action.type) {
@@ -153,6 +156,10 @@ const mainReducer = (state = global, action) => {
         }
         if (action.payload === "prev" && prevIndex === index) {
           slide.active = true;
+        }
+
+        if (nextIndex + 1 > slides.length) {
+          tourEnd.active = true;
         }
       });
 

@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import StorySlide from "./StorySlide";
 import IntroSlide from "./IntroSlide";
 import StopSlide from "./StopSlide";
+import TourEnd from "./TourEnd";
 
 function mapStateToProps(state) {
   return {

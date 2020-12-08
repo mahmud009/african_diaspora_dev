@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import Map from "./components/Map";
 import Menu from "./components/Menu";
 import { connect } from "react-redux";
@@ -6,7 +5,7 @@ import TourStart from "./components/TourStart";
 import Slides from "./components/Slides";
 import DialogBox from "./components/DialogBox";
 import BackButton from "./components/BackButton";
-import Test from "./Test";
+import TourEnd from "./components/TourEnd";
 
 function mapStateToProps(state) {
   return {
@@ -26,13 +25,13 @@ function App(props) {
 
   return (
     <div className="ad-main">
-      {/* <Test /> */}
       <Menu />
       <TourStart />
       <Map />
       <Slides />
       <DialogBox />
       <BackButton />
+      <TourEnd />
     </div>
   );
 }

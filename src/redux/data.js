@@ -33,6 +33,7 @@ import ImageUsa1 from "../img/slide-usa/slide-usa-1.png";
 import ImageUsa2 from "../img/slide-usa/slide-usa-2.png";
 import ImageUsa3 from "../img/slide-usa/slide-usa-3.png";
 import ImageUsa4 from "../img/slide-usa/slide-usa-4.png";
+import ImageUsa5 from "../img/slide-usa/slide-usa-5.png";
 
 // Importing canada slide images
 import ImageCanada1 from "../img/slide-canada/slide-canada-1.png";
@@ -91,7 +92,7 @@ export const nigeriaSlides = [
       blurLevel: 4,
       position: { x: -200, y: -100 },
     },
-    flag: { active: true, type: "start", position: { x: 1240, y: 520 } },
+    flag: { active: true, type: "start", position: { x: 1200, y: 475 } },
     locations: ["nigeria"],
     popups: [],
     funfacts: [],
@@ -510,11 +511,11 @@ export const europeSlides = [
     title: "2ND STOP",
     description: (
       <p>
-        Click on the map of <span className="highlighted">the U.K</span> to see
-        how africans further disappeared into the diaspora. Keep in mind that
-        several countries including the Netherland, Spain France, Portugal,
-        Britian and Denmark played a role in the transatlantic slave trade. We
-        are focusing on the U.K for illustration purposes.
+        Click on the map of <span className="highlighted">Europe</span> to see
+        how africans further disappeared into the diaspora. Several european
+        countries including the Netherland, Spain France, Portugal, Britian and
+        Denmark played a major role in the transatlantic slave trade. We will
+        focus on the U.K for illustration purposes.
       </p>
     ),
     map: {
@@ -896,6 +897,33 @@ export const slideUsa = [
   {
     type: "story",
     name: "usa",
+    image: ImageUsa5,
+    active: false,
+    description: (
+      <p>
+        Those first Africans who landed in the US were destined for a life of
+        servitude. They were sold or traced to wealthy plantation owners in
+        Hampton or sent to a settlement on the James River. They had to work the
+        crop, the corn fields, the tobacco fields. Africans had no official
+        status in the American colonies until Massachusetts became the first to
+        legalize slavery in 1641.
+      </p>
+    ),
+    map: {
+      darkness: 0.7,
+      zoomLevel: 1.35,
+      freezed: true,
+      blurLevel: 4,
+      position: { x: 300, y: 150 },
+      blinking: false,
+    },
+    locations: ["usa"],
+    popups: ["usa"],
+    funfacts: ["usa"],
+  },
+  {
+    type: "story",
+    name: "usa",
     image: ImageUsa2,
     active: false,
     description: (
@@ -1106,8 +1134,8 @@ export const canadaSlides = [
     description: (
       <p>
         Slavery continued after the British conquest of New France in 1763. The
-        territory was eventually renamed British North America, and black came
-        to replace Indigenous enslaved people.
+        territory was eventually renamed British North America, and black
+        ensalved people came to replace Indigenous enslaved people.
         <br />
         <br />
         Compared to the United States, enslaved people made up a much smaller

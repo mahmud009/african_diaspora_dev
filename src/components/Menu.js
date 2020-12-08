@@ -1,6 +1,6 @@
-import React, { Component, createRef } from "react";
-import { Scrollbars } from "react-custom-scrollbars";
-import TourStart from "./TourStart";
+import React from "react";
+import MenuBg from "../img/menu-bg.png";
+import FunPopupBg from "../img/funfact-bg.png";
 import { connect } from "react-redux";
 
 function mapStateToProps(state) {
@@ -47,10 +47,13 @@ const Menu = (props) => {
   if (active) {
     return (
       <div className="ad-menu">
+        <img className="menu-bg" src={FunPopupBg} alt="menu bg" />
         <div className="ad-menu-wrapper">
-          <Scrollbars>
-            <ul>{renderItems()}</ul>
-          </Scrollbars>
+          <h4 className="menu-title">Welcome to African Diaspora Tour</h4>
+          <h5 className="menu-subtitle">
+            Select an available tour from below options
+          </h5>
+          <ul>{renderItems()}</ul>
         </div>
       </div>
     );

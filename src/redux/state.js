@@ -188,10 +188,9 @@ const popups = [
     active: false,
     description: (
       <p>
-        Approximately 3,000,000 African enslaved persons were forced into the
-        territories of Great Britain as a result of the transatlantic slave
-        trade. Today, there are roughly 2,000,000 descendants of African
-        enslaved persons residing in Great Britain.
+        Approximately 380,000 African enslaved persons werre forced into America
+        as a result of the transatlantic slave trade.Today, there are roughly
+        37,000,000 descendants of African enslaved person residing in America.
       </p>
     ),
   },
@@ -215,10 +214,9 @@ const popups = [
     active: false,
     description: (
       <p>
-        Approximately 5,000,000 African enslaved persons were forced into the
-        Caribbean Islands as a result of the transatlantic slave trade. Today,
-        there are roughly 40,000,000 descendants of African enslaved persons
-        residing in the Caribbean.
+        Approximately 1,100,000 African enslaved persons were forced into Spain
+        as a result of the transatlantic slave trade.Today, there are roughly
+        1,000,000 descendants of African enslaved persons residing in Spain.
       </p>
     ),
   },
@@ -266,9 +264,10 @@ const popups = [
     active: false,
     description: (
       <p>
-        Approximately 100,000 African enslaved persons were forced into Denmark
-        as a result of the transatlantic slave trade. Today, there are roughly
-        250,000 descendants of African enslaved persons residing in Denmark.
+        Approximately 550,000 African enslaved persons were forced into the
+        Netherlands as a result of the transatlantic slave trade. Today, there
+        are roughly the same amount of descendants of African enslaved people
+        residing in the Netherlands.
       </p>
     ),
   },
@@ -320,7 +319,7 @@ const funfacts = [
   },
   {
     name: "europe",
-    coords: { x: 1050, y: 200 },
+    coords: { x: 1100, y: 140 },
     description: (
       <p>
         Little Kingston (named after the capital city of jamaica) is home to a
@@ -331,8 +330,15 @@ const funfacts = [
   },
   {
     name: "westafrica",
-    coords: { x: 1090, y: 450 },
+    coords: { x: 1100, y: 550 },
     active: false,
+    description: (
+      <p>
+        The population of west africa is roughly 400 million people -- that’s
+        roughly 6.5 times greater than south african population of 60 million
+        people.
+      </p>
+    ),
   },
 ];
 
@@ -391,6 +397,10 @@ const flag = {
   position: { x: 650, y: 150 },
 };
 
+const tourEnd = {
+  active: false,
+};
+
 const state = {
   map,
   locations,
@@ -403,6 +413,7 @@ const state = {
   popup,
   triangle,
   flag,
+  tourEnd,
 };
 
 export default state;
