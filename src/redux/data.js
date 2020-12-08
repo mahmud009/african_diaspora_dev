@@ -34,6 +34,7 @@ import ImageUsa2 from "../img/slide-usa/slide-usa-2.png";
 import ImageUsa3 from "../img/slide-usa/slide-usa-3.png";
 import ImageUsa4 from "../img/slide-usa/slide-usa-4.png";
 import ImageUsa5 from "../img/slide-usa/slide-usa-5.png";
+import ImageUsa6 from "../img/slide-usa/slide-usa-6.png";
 
 // Importing canada slide images
 import ImageCanada1 from "../img/slide-canada/slide-canada-1.png";
@@ -71,6 +72,8 @@ export const tourDescription = [
   },
 ];
 
+// Nigeria slide data
+//====================================
 export const nigeriaSlides = [
   {
     type: "intro",
@@ -302,6 +305,8 @@ export const nigeriaSlides = [
   },
 ];
 
+// South slide data
+//====================================
 export const southamericaSlides = [
   {
     type: "stop",
@@ -504,6 +509,8 @@ export const southamericaSlides = [
   },
 ];
 
+// Europe slide data
+//====================================
 export const europeSlides = [
   {
     type: "stop",
@@ -677,6 +684,8 @@ export const europeSlides = [
   },
 ];
 
+// Carribean slide data
+//====================================
 export const carribeanSlides = [
   {
     type: "stop",
@@ -843,6 +852,8 @@ export const carribeanSlides = [
   },
 ];
 
+// Usa slide data
+//====================================
 export const slideUsa = [
   {
     type: "stop",
@@ -904,9 +915,11 @@ export const slideUsa = [
         Those first Africans who landed in the US were destined for a life of
         servitude. They were sold or traced to wealthy plantation owners in
         Hampton or sent to a settlement on the James River. They had to work the
-        crop, the corn fields, the tobacco fields. Africans had no official
-        status in the American colonies until Massachusetts became the first to
-        legalize slavery in 1641.
+        crop, the corn fields, the tobacco fields.
+        <br />
+        <br />
+        Africans had no official status in the American colonies until
+        Massachusetts became the first to legalize slavery in 1641.
       </p>
     ),
     map: {
@@ -924,18 +937,15 @@ export const slideUsa = [
   {
     type: "story",
     name: "usa",
-    image: ImageUsa2,
+    image: ImageUsa6,
     active: false,
     description: (
       <p>
-        Those first Africans who landed in the US were destined for a life of
-        servitude. They were sold or traded to wealthy plantation owners in
-        Hampton or sent to a settlement on the James River. They had to work the
-        crop, the corn fields, the tobacco fields.
-        <br />
-        <br />
-        Africans had no official status in the American colonies until
-        Massachusetts became the first to legalize slavery in 1641.
+        While those in the South held more slaves to tend labor intensive crops,
+        many whites in the more industrialized, urban North kept slaves as
+        domestic servants or skilled laborers. And though Northern states
+        abolished slavery some of them gradually they still profited from the
+        institution.
       </p>
     ),
     map: {
@@ -1015,6 +1025,8 @@ export const slideUsa = [
   },
 ];
 
+// Canada slide data
+//====================================
 export const canadaSlides = [
   {
     type: "stop",
@@ -1135,7 +1147,7 @@ export const canadaSlides = [
       <p>
         Slavery continued after the British conquest of New France in 1763. The
         territory was eventually renamed British North America, and black
-        ensalved people came to replace Indigenous enslaved people.
+        enslaved people came to replace Indigenous enslaved people.
         <br />
         <br />
         Compared to the United States, enslaved people made up a much smaller
