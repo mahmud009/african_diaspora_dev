@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import FunfactIcon from "../img/funfact-icon.png";
 import MapButton from "./MapButton";
@@ -28,6 +28,18 @@ const MapSurface = (props) => {
   const popups = props.state.popups;
   const funfacts = props.state.funfacts;
   const map = props.state.map;
+
+  // useEffect(() => {
+  //   console.log(document);
+  // });
+
+  const triggerEuropeHover = (e) => {
+    let customEurope = document.getElementsByClassName("custom-europe");
+    customEurope[0].classList.add("hover");
+    if (e.type === "mouseleave") {
+      customEurope[0].classList.remove("hover");
+    }
+  };
 
   const renderLocations = () => {
     return locations.map((location, index) => {
@@ -60,10 +72,22 @@ const MapSurface = (props) => {
             key={index + 1}
             className={`map-location ${location.active ? "active" : ""}  ${
               location.blinking ? "blinking" : ""
-            }`}
+            } ${location.name === "uk" ? "custom-uk" : ""} ${
+              location.name === "europe" ? "custom-europe" : ""
+            } ${location.name === "canada" ? "custom-canada" : ""}`}
             style={position}
-            onMouseOver={() => playSound()}
-            onMouseLeave={() => stopSound()}
+            onMouseOver={(e) => {
+              playSound();
+              if (location.name === "uk") {
+                triggerEuropeHover(e);
+              }
+            }}
+            onMouseLeave={(e) => {
+              stopSound();
+              if (location.name === "uk") {
+                triggerEuropeHover(e);
+              }
+            }}
             onClick={() => triggerSlide("next")}
           >
             <img src={location.image} alt={location.name} />

@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "./static/css/main.0198ef39.chunk.css",
-    "main.js": "./static/js/main.238f840b.chunk.js",
-    "main.js.map": "./static/js/main.238f840b.chunk.js.map",
+    "main.css": "./static/css/main.92aa617a.chunk.css",
+    "main.js": "./static/js/main.640d2735.chunk.js",
+    "main.js.map": "./static/js/main.640d2735.chunk.js.map",
     "runtime-main.js": "./static/js/runtime-main.699ea300.js",
     "runtime-main.js.map": "./static/js/runtime-main.699ea300.js.map",
     "static/js/2.7175e766.chunk.js": "./static/js/2.7175e766.chunk.js",
     "static/js/2.7175e766.chunk.js.map": "./static/js/2.7175e766.chunk.js.map",
     "index.html": "./index.html",
-    "static/css/main.0198ef39.chunk.css.map": "./static/css/main.0198ef39.chunk.css.map",
+    "static/css/main.92aa617a.chunk.css.map": "./static/css/main.92aa617a.chunk.css.map",
     "static/js/2.7175e766.chunk.js.LICENSE.txt": "./static/js/2.7175e766.chunk.js.LICENSE.txt",
     "static/media/africa.37b5411e.mp3": "./static/media/africa.37b5411e.mp3",
     "static/media/black-popup-bg.489a3175.png": "./static/media/black-popup-bg.489a3175.png",
@@ -68,7 +68,7 @@
   "entrypoints": [
     "static/js/runtime-main.699ea300.js",
     "static/js/2.7175e766.chunk.js",
-    "static/css/main.0198ef39.chunk.css",
-    "static/js/main.238f840b.chunk.js"
+    "static/css/main.92aa617a.chunk.css",
+    "static/js/main.640d2735.chunk.js"
   ]
 }

@@ -18,6 +18,7 @@ import Carribean from "../img/carribean.png";
 import Canada from "../img/canada.png";
 import Southamerica from "../img/southamerica.png";
 import Triangle from "../img/triangular-trade.png";
+import Uk from "../img/uk.png";
 
 // Importing location's sound track
 import EuropeSound from "../sounds/europe.mp3";
@@ -81,7 +82,7 @@ const locations = [
     name: "europe",
     coords: { x: 1091, y: 71 },
     image: Europe,
-    sound: EuropeSound,
+    // sound: EuropeSound,
     active: false,
     clickable: false,
   },
@@ -138,6 +139,15 @@ const locations = [
     coords: { x: 420, y: 542 },
     image: Southamerica,
     sound: SouthamericaSound,
+    active: false,
+    clickable: false,
+  },
+
+  {
+    name: "uk",
+    coords: { x: 1133, y: 71 },
+    image: Uk,
+    sound: EuropeSound,
     active: false,
     clickable: false,
   },

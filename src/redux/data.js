@@ -1,3 +1,5 @@
+// reparationhub@123
+// info@reparationhub.com
 // Importing nigeria slide story images
 import ImageNigeria1 from "../img/slide-nigeria/slide-nigeria-1.png";
 import ImageNigeria2 from "../img/slide-nigeria/slide-nigeria-2.png";
