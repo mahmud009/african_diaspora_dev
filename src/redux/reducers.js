@@ -39,15 +39,6 @@ function deactivateAllSurface({ locations, popups, funfacts }) {
   funfacts.map((fact) => (fact.active = false));
 }
 
-function resetMap(map) {
-  map.darkness = 0.8;
-  map.zoomLevel = 1;
-  map.blurLevel = 4;
-  map.position.x = -420;
-  map.position.y = -150;
-  map.freezed = true;
-}
-
 function backToMenu(state) {
   function mapToDeactive(object) {
     object.map((property) => {
